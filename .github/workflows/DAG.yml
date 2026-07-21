@@ -1,0 +1,19 @@
+name: DAG
+on:
+ workflow_dispatch:
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello Prem"
+  job-2:
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "hello Ammulu"
+  jobs-3:
+     runs-on: ubuntu-slim
+     needs: 
+       - job-1
+       - job-2
+     steps:
+       - run: echo "hello Jeeva"
