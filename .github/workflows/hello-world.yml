@@ -1,0 +1,10 @@
+name: Hello-World
+on:
+  workflow_dispatch:
+jobs:
+  Hello-world:
+     runs-on: ubuntu-latest
+     steps:
+       - name: "myfst giyhub action"
+         run: |
+             echo "Hello World!"
