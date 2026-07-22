@@ -23,6 +23,6 @@ jobs:
       steps:
         - name: get from producer
           run: |
-            echo "ypk=${{needs.consumer.outputs.test}}
+            echo "ypk=${{needs.consumer.outputs.test}}"
     
            
