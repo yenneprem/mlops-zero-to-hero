@@ -27,6 +27,6 @@ jobs:
         - name: get from producer
           run: |
             echo "ypk=${{needs.consumer.outputs.test}}"
-            echo "pkp=${{needs.consumer.outputs.tes1}}"
+            echo "pkp=${{needs.consumer.outputs.test1}}"
     
-           
+          
