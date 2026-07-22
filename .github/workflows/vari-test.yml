@@ -19,7 +19,7 @@ jobs:
       - name: Inspacet values
         run: |
           echo "FOO=$prem"
-          echo "foo=${{steps.generate-foo.outputs.pk}}"
+          echo "foo=${{steps.generate-foo.outputs.yenne}}"
   producer:
       runs-on: ubuntu-24.04
       needs: consumer
