@@ -4,6 +4,8 @@ on:
 jobs:
   consumer:
     runs-on: ubuntu-22.04
+    container:
+      image: alpine:3.20
     outputs:
        test: ${{steps.generate-foo.outputs.pk}}
        test1: ${{steps.generate-foo.outputs.yenne}}
