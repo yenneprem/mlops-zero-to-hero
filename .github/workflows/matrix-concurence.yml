@@ -1,0 +1,27 @@
+name: matrix-concurence
+on:
+  workflow_dispatch:
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+jobs:
+   matrix-jobs:
+     runs-on: ubuntu-slim
+     strategy:
+       matrix:
+         number: [1,2,3]
+         letter: [a,b]
+         exclude:
+           - number: 1
+             letter: b
+     timeout-minutes: 5
+     steps:
+       - name: Echo number and letter
+         run: | 
+            echo "number: ${{matrix.number}}
+            echo "letter: ${{matrix.letter}}
+       - name: exclude 2b
+         if: ${{ !(matrix.number == 2  &&  matrix.letter == 'b') }}
+         run: |
+            echo " this is the step for ${{matrix.number}}${{matrix.letter}}"
+         
+  
