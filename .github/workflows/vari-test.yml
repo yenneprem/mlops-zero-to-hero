@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
        test: ${{steps.generate-foo.outputs.pk}}
-       test1: ${{steps.generate-foo.outputs.prem}}
+       test1: ${{steps.generate-foo.outputs.yenne}}
     steps:
       - name: geneate and export 
         id: generate-foo
