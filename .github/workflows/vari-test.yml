@@ -6,13 +6,16 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
        test: ${{steps.generate-foo.outputs.pk}}
+       test1: ${{steps.generate-foo.outputs.prem}}
     steps:
       - name: geneate and export 
         id: generate-foo
         run: | 
            foo=prem
+           foi=pkprem
            echo "pk=${foo}" >> "$GITHUB_OUTPUT"
-           echo "prem=${foo}" >> "$GITHUB_ENV"
+           echo "prem=${foi}" >> "$GITHUB_ENV"
+           echo "yenne=${foi} >> "$GITHUB_OUTPUT"
       - name: Inspacet values
         run: |
           echo "FOO=$prem"
@@ -24,5 +27,6 @@ jobs:
         - name: get from producer
           run: |
             echo "ypk=${{needs.consumer.outputs.test}}"
+            echo "pkp=${{needs.consumer.outputs.tes1}}"
     
            
