@@ -12,7 +12,7 @@ jobs:
         run: | 
            foo=prem
            echo "pk=${foo}" >> "$GITHUB_OUTPUT"
-           echo "prem=${foo}" >> $GITHUB_ENV"
+           echo "prem=${foo}" >> "$GITHUB_ENV"
       - name: Inspacet values
         run: |
           echo "FOO=$prem"
