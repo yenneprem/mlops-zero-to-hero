@@ -15,7 +15,7 @@ jobs:
            foi=pkprem
            echo "pk=${foo}" >> "$GITHUB_OUTPUT"
            echo "prem=${foi}" >> "$GITHUB_ENV"
-           echo "yenne=${foi} >> "$GITHUB_OUTPUT"
+           echo "yenne=${foi}" >> "$GITHUB_OUTPUT"
       - name: Inspacet values
         run: |
           echo "FOO=$prem"
