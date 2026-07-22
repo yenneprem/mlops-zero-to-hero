@@ -1,0 +1,28 @@
+name: varibalestest
+on:
+ workflow_dispatch: 
+jobs:
+  consumer:
+    runs-on: ubuntu-22.04
+    outputs:
+       test: ${{steps.generate-foo.outputs.pk}}
+    steps:
+      - name: geneate and export 
+        id: generate-foo
+        run: | 
+           foo=prem
+           echo "pk=${foo}" >> "$GITHUB_OUTPUT"
+           echo "prem=${foo}" >> $GITHUB_ENV"
+      - name: Inspacet values
+        run: |
+          echo "FOO=$prem"
+          echo "foo=${{steps.generate-foo.outputs.pk}}"
+  producer:
+      runs-on: ubuntu-24.04
+      needs: consumer
+      steps:
+        - name: get from producer
+          run: |
+            echo "ypk=${{needs.consumer.outputs.test}}
+    
+           
