@@ -1,0 +1,26 @@
+#github composite action 
+name: compositeaction
+description: "Geer Someone"
+inputs:
+  name:
+    description: 'Name to greet'
+    required: false
+    default: 'World'
+
+outputs:
+  greeting:
+    description: 'The greeting message'
+    value: ${{ steps.greet.outputs.greeting }}
+runs:
+  # For more on composite actions, see:
+  # https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-composite-action
+  using: composite
+  steps:
+    - id: greet
+      shell: bash
+      env:
+        INPUT_NAME: ${{ inputs.name }}
+      run: |
+        GREETING="Hello $INPUT_NAME"
+        echo "$GREETING"
+        echo "greeting=$GREETING" >> $GITHUB_OUTPUT
